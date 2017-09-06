@@ -3,10 +3,10 @@ import { Hero } from './hero';
 
 const HEROES: Hero[] = [
   { id: 1, name: 'Apple' },
-  { id: 2, name: 'Narco' },
-  { id: 3, name: 'Bombasto' },
-  { id: 4, name: 'Celeritas' },
-  { id: 5, name: 'Magneta' },
+  { id: 2, name: 'Windows' },
+  { id: 3, name: 'Android' },
+  { id: 4, name: 'Samsung' },
+  { id: 5, name: 'Nokia' },
  
 ];
  
