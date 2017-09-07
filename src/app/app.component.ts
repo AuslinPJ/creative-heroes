@@ -1,26 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Hero } from './hero';
+import { HeroService } from './hero.service';
 
-const HEROES: Hero[] = [
-  { id: 1, name: 'Apple' },
-  { id: 2, name: 'Windows' },
-  { id: 3, name: 'Android' },
-  { id: 4, name: 'Samsung' },
-  { id: 5, name: 'Nokia' },
- 
-];
  
 @Component({
   selector: 'app-root',
 templateUrl: './app.component.html',
 
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [HeroService]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
     title = 'Creative';
-      heroes = HEROES;
+      heroes: Hero[];
   selectedHero: Hero;
+
+ constructor(private heroService: HeroService) { }
  
+  getHeroes(): void {
+    this.heroService.getHeroes().then(heroes => this.heroes = heroes);
+  }
+ 
+  ngOnInit(): void {
+    this.getHeroes();
+  }
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
   }
